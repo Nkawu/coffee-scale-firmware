@@ -1,19 +1,15 @@
 # uncomment to setup WiFi connection
 
-"""
-import network
-
-
 def do_connect():
-    sta_if = network.WLAN(network.STA_IF)
-    if not sta_if.isconnected():
+    import network
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    if not wlan.isconnected():
         print('Connecting to network...')
-        sta_if.active(True)
-        sta_if.connect('SSID', 'password')
-        while not sta_if.isconnected():
+        # Enter WiFi parameters here
+        wlan.connect('*SSID*', '*PASSWORD*')
+        while not wlan.isconnected():
             pass
-    print('Network config:', sta_if.ifconfig())
-
+    print('Network config:', wlan.ifconfig())
 
 do_connect()
-"""
