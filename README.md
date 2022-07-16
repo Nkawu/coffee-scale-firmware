@@ -9,7 +9,7 @@ An ESP32-based **Feather** microcontroller board is used in place of the **ESP32
 
 The power switch is removed from the housing to free up space in the scale body, and now uses the ESP32 deepsleep mode instead to preserve battery life. An additional button is added to the front panel, with both buttons activating tactile switches mounted inside the body. Holding the left button down > 1sec puts the ESP32 into deepsleep mode. The right button wakes the ESP32 from deepsleep, and while powered on tares/resets the scale. Both buttons use internal pull-up/down resistors in the ESP32, so no extra components are required.
 
-The `firmware` folder contains the `.py` files that need to be uploaded into the ESP32's memory running the [MicroPython](https://micropython.org/) interpreter.
+The `firmware` folder contains the `.py` files that need to be uploaded into the root of the ESP32 running the [MicroPython](https://micropython.org/) interpreter.
 
 :heavy_exclamation_mark: Be sure to enter your WiFi SSID & password in the `boot.py` file.
 
