@@ -26,6 +26,7 @@ _SSD1306_WIDTH  = const(128)
 _SSD1306_HEIGHT = const(32)
 _HX711_DOUT = const(14)
 _HX711_SCK  = const(13)
+_CALIBRATION_FACTOR = 1959.57 # scale calibration factor
 _DEBUG = True
 
 # check if the device woke from a deep sleep
@@ -59,7 +60,7 @@ bat_percent = 0
 
 # hx711 load cell amp
 hx = HX711(dout=_HX711_DOUT, pd_sck=_HX711_SCK, gain=64)
-hx.set_scale(1950.46)
+hx.set_scale(_CALIBRATION_FACTOR)
 hx.tare()
 kf.update_estimate(hx.get_units(times=1))
 filtered_weight = 0
