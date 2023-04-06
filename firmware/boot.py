@@ -1,15 +1,25 @@
 # uncomment to setup WiFi connection
+import network
+import esp
 
-def do_connect():
-    import network
-    wlan = network.WLAN(network.STA_IF)
-    wlan.active(True)
-    if not wlan.isconnected():
+# station interface is not active by default
+def connect_sta():
+    sta_if = network.WLAN(network.STA_IF)
+    sta_if.active(True)
+    if not sta_if.isconnected():
         print('Connecting to network...')
         # Enter WiFi parameters here
-        wlan.connect('*SSID*', '*PASSWORD*')
-        while not wlan.isconnected():
+        sta_if.connect('*SSID*', '*PASSWORD*')
+        while not sta_if.isconnected():
             pass
-    print('Network config:', wlan.ifconfig())
+    print('Network config:', sta_if.ifconfig())
 
-do_connect()
+# access point interface is enabled by default
+def disable_ap():
+    ap_if = network.WLAN(network.AP_IF)
+    if ap_if.active():
+        ap_if.active(False)
+
+esp.osdebug(None)
+disable_ap()
+# connect_sta()
