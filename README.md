@@ -2,6 +2,9 @@
 
 This is a modified version of the amazing project by **Valentin Bersier**, original repo at https://github.com/beeb/coffee-scale-app. This repo only contains the firmware for the **ESP32 microcontroller**, go to the original repo for the rest of the software.
 
+## Documentation
+Refer to the [Wiki](https://github.com/Nkawu/coffee-scale-firmware/wiki) for detailed instructions on how to install this firmware on your scale
+
 ## Modification details
 For this version of the scale, the 3D printed housing was completely redesigned to fit on a Breville Dual Boiler espresso machine. The 3D printable parts are available from [Printables - Bluetooth Espresso Scale ESP32 Feather based](https://www.printables.com/model/213101-bluetooth-espresso-scale-esp32-feather-based)
 
@@ -10,12 +13,6 @@ An ESP32-based **Feather** microcontroller board is used in place of the **ESP32
 The power switch is removed from the housing to free up space in the scale body, and now uses the ESP32 deepsleep mode instead to preserve battery life. An additional button is added to the front panel, with both buttons activating tactile switches mounted inside the body. Holding the left button down > 1sec puts the ESP32 into deepsleep mode. The right button wakes the ESP32 from deepsleep, and while powered on tares/resets the scale. Both buttons use internal pull-up/down resistors in the ESP32, so no extra components are required.
 
 The `firmware` folder contains the `.py` files that need to be uploaded into the root of the ESP32 running the [MicroPython](https://micropython.org/) interpreter.
-
-:heavy_exclamation_mark: Be sure to enter your WiFi SSID & password in the `boot.py` file.
-
-The firmware code has been tested on [`esp32-idf4-20200930-unstable-v1.13-77-g0fd0eb00a.bin`](https://micropython.org/download/esp32/) (later version should work too) and can be flashed with [esptool](https://github.com/espressif/esptool) according to the instructions on the micropython site.
-
-To upload the source files to the microcontroller, either use [WebREPL](https://docs.micropython.org/en/latest/esp8266/tutorial/repl.html) or [ampy](https://github.com/scientifichackers/ampy).
 
 ## Modified Espresso Workflow
 
