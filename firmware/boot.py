@@ -1,4 +1,3 @@
-# uncomment to setup WiFi connection
 import network
 import esp
 
@@ -22,4 +21,6 @@ def disable_ap():
 
 esp.osdebug(None)
 disable_ap()
+
+# Uncomment the following line to setup WiFi connection
 # connect_sta()
